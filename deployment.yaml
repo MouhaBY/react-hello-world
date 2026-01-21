@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: react-hello-world
   labels:
-    app: nginx
+    app: react-app
 spec:
-  replicas: 2 # We want 2 Nginx pods
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: react-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: react-app
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest # Using the latest Nginx image
+      - name: react-app
+        image: mouhaby92/react-hello-world:latest
         ports:
         - containerPort: 80
