@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: react-app-ingress
+  annotations:
+    # Annotation spécifique à Nginx Ingress Controller pour la réécriture si nécessaire
+    # ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: react-hello-world
+spec:
+  ingressClassName: nginx # Indique à quel contrôleur Ingress cette ressource s'applique
+  rules:
+  - host: react-hello-world.local # Le nom de domaine que vous utiliserez
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: react-hello-world-service # Le nom de votre service React
+            port:
+              number: 80 # Le port de votre service React
