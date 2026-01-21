@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: react-hello-world
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/MouhaBY/react-hello-world.git
+    targetRevision: HEAD # Or 'main', 'v1.0.0', etc.
+    path: k8s-manifests/ # Path to your Kubernetes manifests within the repo
+  destination:
+    server: https://kubernetes.default.svc # In-cluster Kubernetes API server
+    namespace: default # The namespace where your app will be deployed
+  syncPolicy:
+    automated: # Enable automatic synchronization
+      prune: true # Delete resources that are no longer in Git
+      selfHeal: true # Revert any manual changes made to the cluster to match Git
+    syncOptions:
+      - CreateNamespace=true # Automatically create the target namespace if it doesn't exist
