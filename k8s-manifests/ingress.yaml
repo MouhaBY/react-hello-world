@@ -3,14 +3,13 @@ kind: Ingress
 metadata:
   name: react-app-ingress
   annotations:
-    # Annotation spécifique à Nginx Ingress Controller pour la réécriture si nécessaire
     ingress.kubernetes.io/rewrite-target: /
   labels:
     app: react-hello-world
 spec:
   ingressClassName: nginx # Indique à quel contrôleur Ingress cette ressource s'applique
   rules:
-  - host: react-hello-world.local # Le nom de domaine que vous utiliserez
+  - host: react-app.local # Le nom de domaine que vous utiliserez
     http:
       paths:
       - path: /
