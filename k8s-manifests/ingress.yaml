@@ -4,7 +4,7 @@ metadata:
   name: react-app-ingress
   annotations:
     # Annotation spécifique à Nginx Ingress Controller pour la réécriture si nécessaire
-    # ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/rewrite-target: /
   labels:
     app: react-hello-world
 spec:
