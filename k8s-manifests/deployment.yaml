@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: react-hello-world
   labels:
-    app: react-app
+    app: react-hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react-app
+      app: react-hello-world
   template:
     metadata:
       labels:
-        app: react-app
+        app: react-hello-world
     spec:
       containers:
       - name: react-app
