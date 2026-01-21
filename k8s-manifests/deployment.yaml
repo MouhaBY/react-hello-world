@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: mouhaby92/react-hello-world:latest
+        image: mouhaby92/react-hello-world:1.0
         ports:
         - containerPort: 80
